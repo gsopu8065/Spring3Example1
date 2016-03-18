@@ -1,8 +1,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
     <bean id="address1" class="com.nashville.pojo.Address">
         <property name="street" value="102 state st"/>
@@ -11,13 +10,10 @@
     </bean>
 
     <bean id="student1" class="com.nashville.pojo.Student" scope="prototype">
-        <!--<property name="studentName" value="jack"/>
-        <property name="studentRoll" value="101"/>
-        <property name="address" ref="address1"/>-->
 
-        <constructor-arg name="studentName" value="jack2"/>
-        <constructor-arg name="studentRoll" value="102"/>
-        <constructor-arg name="address" ref="address1"/>
+        <property name="studentName" value="jack2"/>
+        <property name="studentRoll" value="102"/>
+        <!--<property name="address" ref="address1"/>-->
 
         <property name="hobbies">
             <list>

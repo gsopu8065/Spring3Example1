@@ -1,19 +1,23 @@
 package com.nashville.pojo;
 
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.List;
 import java.util.Map;
 
 /**
  * Created by srujangopu on 3/9/16.
  */
-
+@Component
 public class Student {
 
-    private String studentName;
-    private int studentRoll;
-    private Address address;
+    private String studentName = "jack";
+    private int studentRoll = 101;
+    private Address address = new Address("101 state st", "Nashville", "TN");
     private List<String> hobbies;
     private Map<String, String> phone;
 
@@ -64,5 +68,16 @@ public class Student {
 
     public void setPhone(Map<String, String> phone) {
         this.phone = phone;
+    }
+
+
+    @PostConstruct
+    public void showSomeThing(){
+        System.out.println("This is post construct......");
+    }
+
+    @PreDestroy
+    public void showSomethingBeforeDelete(){
+        System.out.println("I am deleteing...bye bye");
     }
 }
